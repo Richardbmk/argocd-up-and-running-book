@@ -6,7 +6,7 @@ metadata:
     tier: database
   name: mysql
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: '1'
 spec:
   replicas: 1
   selector:
@@ -21,31 +21,31 @@ spec:
         tier: database
     spec:
       containers:
-      - image: mysql:5.6.51
-        name: mysql
-        env:
-        - name: MYSQL_DATABASE
-          value: pricelist
-        - name: MYSQL_PASSWORD
-          value: pricelist
-        - name: MYSQL_USER
-          value: pricelist
-        - name: MYSQL_RANDOM_ROOT_PASSWORD
-          value: "yes"
-        volumeMounts:
-        - mountPath: /var/lib/mysql/data
-          name: mysql-db
-        livenessProbe:
-          tcpSocket:
-            port: 3306
-          initialDelaySeconds: 12
-          periodSeconds: 10
-        readinessProbe:
-          tcpSocket:
-            port: 3306
-          initialDelaySeconds: 12
-          periodSeconds: 10
+        - image: mysql:8.0
+          name: mysql
+          env:
+            - name: MYSQL_DATABASE
+              value: pricelist
+            - name: MYSQL_PASSWORD
+              value: pricelist
+            - name: MYSQL_USER
+              value: pricelist
+            - name: MYSQL_RANDOM_ROOT_PASSWORD
+              value: 'yes'
+          volumeMounts:
+            - mountPath: /var/lib/mysql/data
+              name: mysql-db
+          livenessProbe:
+            tcpSocket:
+              port: 3306
+            initialDelaySeconds: 12
+            periodSeconds: 10
+          readinessProbe:
+            tcpSocket:
+              port: 3306
+            initialDelaySeconds: 12
+            periodSeconds: 10
       volumes:
-      - name: mysql-db
-        persistentVolumeClaim:
-          claimName: pricelist-db-pvc
+        - name: mysql-db
+          persistentVolumeClaim:
+            claimName: pricelist-db-pvc
