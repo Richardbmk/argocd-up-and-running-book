@@ -5,9 +5,9 @@ internalService:
 
 ingress:
   annotations:
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: 'true'
   className: nginx
-  host: keycloak.upandrunning.local
+  host: keycloak.labs.local
   tls:
     secret:
       name: keycloak-tls-secret
@@ -23,7 +23,7 @@ postgresql:
   image:
     repository: postgres
     pullPolicy: IfNotPresent
-    tag: "latest"
+    tag: 'latest'
   secret:
     name: postgresql-db-secret
     username: postgres

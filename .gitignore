@@ -1,0 +1,28 @@
+# OS files
+.DS_Store
+
+# Editor/IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs and temp files
+*.log
+*.tmp
+*.temp
+
+# Kubernetes local config
+.kube/
+
+# Certificates and private keys (generated/local)
+*.pem
+*.key
+*.crt
+*.csr
+*.p12
+*.pfx
+*.jks
+
+# Helm build artifacts
+**/charts/*.tgz
