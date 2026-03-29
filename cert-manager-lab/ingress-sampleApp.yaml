@@ -1,0 +1,25 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sample-app-ingress
+  namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: '/'
+    nginx.ingress.kubernetes.io/ssl-redirect: 'false' # Disable SSL redirect if not using HTTPS
+    nginx.ingress.kubernetes.io/proxy-body-size: '10m' # Adjust body size if needed
+    nginx.ingress.kubernetes.io/proxy-read-timeout: '600' # Increase timeout if needed
+    nginx.ingress.kubernetes.io/proxy-send-timeout: '600' # Increase timeout if needed
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: sample-app.labs.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: kuard
+                port:
+                  number: 80

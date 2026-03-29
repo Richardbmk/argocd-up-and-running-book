@@ -26,3 +26,6 @@
 
 # Helm build artifacts
 **/charts/*.tgz
+
+argocd_ssh*
+public.pgp

@@ -1,8 +1,7 @@
----
 server:
   ingress:
     enabled: true
-    hostname: argocd.upandrunning.local
+    hostname: argocd.labs.local
     ingressClassName: nginx
     annotations:
       nginx.ingress.kubernetes.io/force-ssl-redirect: 'true'

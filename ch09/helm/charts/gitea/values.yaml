@@ -1,5 +1,4 @@
 ---
-
 setupGitea: true
 setupScriptFile: files/setup_gitea.sh
 scriptsMountPath: /etc/scripts
@@ -8,9 +7,9 @@ gitea:
   deployment:
     env:
       - name: GITEA__webhook__ALLOWED_HOST_LIST
-        value: "argocd.upandrunning.local, tekton-triggers-argocd.upandrunning.local"
+        value: 'argocd.labs.local, tekton-triggers-argocd.labs.local'
       - name: GITEA__webhook__SKIP_TLS_VERIFY
-        value: "true"
+        value: 'true'
   scheme: http
   host: gitea-http
   port: 3000
