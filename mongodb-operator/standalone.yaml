@@ -1,0 +1,27 @@
+# source: https://github.com/OT-CONTAINER-KIT/mongodb-operator/blob/main/examples/basic/standalone.yaml
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mongodb-secret
+type: Opaque
+stringData:
+  password: admin123
+---
+apiVersion: opstreelabs.in/v1alpha1
+kind: MongoDB
+metadata:
+  name: mongodb
+spec:
+  kubernetesConfig:
+    image: quay.io/opstree/mongo:v5.0
+    imagePullPolicy: IfNotPresent
+  storage:
+    accessModes: ['ReadWriteOnce']
+    storageSize: 1Gi
+    storageClass: hostpath
+  mongoDBSecurity:
+    mongoDBAdminUser: admin
+    secretRef:
+      name: mongodb-secret
+      key: password
