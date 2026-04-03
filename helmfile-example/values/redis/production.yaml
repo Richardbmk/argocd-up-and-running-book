@@ -1,0 +1,19 @@
+# Production-specific Redis overrides
+master:
+  persistence:
+    enabled: true
+    size: 10Gi
+  resources:
+    limits:
+      memory: 2Gi
+      cpu: 1000m
+
+replica:
+  replicaCount: 3
+  persistence:
+    enabled: true
+    size: 10Gi
+  resources:
+    limits:
+      memory: 2Gi
+      cpu: 1000m

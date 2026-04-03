@@ -1,0 +1,10 @@
+# environments/development/values.yaml
+namespace: cache-dev
+replicas: 1
+resources:
+  limits:
+    memory: 64Mi
+    cpu: 50m
+  requests:
+    memory: 32Mi
+    cpu: 25m

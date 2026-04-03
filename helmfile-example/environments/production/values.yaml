@@ -1,0 +1,10 @@
+# environments/production/values.yaml
+namespace: cache-prod
+replicas: 3
+resources:
+  limits:
+    memory: 256Mi
+    cpu: 200m
+  requests:
+    memory: 128Mi
+    cpu: 100m
