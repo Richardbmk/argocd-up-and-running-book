@@ -5,14 +5,14 @@ metadata:
   namespace: argocd
 spec:
   generators:
-  - list:
-      elements:
-      - srv: database
-        path: ch10/apps/golist-db/
-      - srv: backend
-        path: ch10/apps/golist-api/
-      - srv: frontend
-        path: ch10/apps/golist-frontend/
+    - list:
+        elements:
+          - srv: database
+            path: ch10/apps/golist-db/
+          - srv: backend
+            path: ch10/apps/golist-api/
+          - srv: frontend
+            path: ch10/apps/golist-frontend/
   strategy:
     type: RollingSync
     rollingSync:
@@ -40,7 +40,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: 'https://github.com/sabre1041/argocd-up-and-running-book'
+        repoURL: 'https://github.com/Richardbmk/argocd-up-and-running-book'
         targetRevision: main
         path: '{{path}}'
       destination:

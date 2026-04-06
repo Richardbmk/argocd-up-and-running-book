@@ -4,11 +4,11 @@ metadata:
   name: parent
   namespace: argocd
   finalizers:
-  - resources-finalizer.argocd.argoproj.io
+    - resources-finalizer.argocd.argoproj.io
 spec:
   source:
     path: ch10/argocd/applications
-    repoURL: 'https://github.com/sabre1041/argocd-up-and-running-book'
+    repoURL: 'https://github.com/Richardbmk/argocd-up-and-running-book'
     targetRevision: main
     directory:
       exclude: 'parent.yaml'
